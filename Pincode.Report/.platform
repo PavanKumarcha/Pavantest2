@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Pincode"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2c5c8232-8a7e-a770-4730-57a11ad02658"
+  }
+}
