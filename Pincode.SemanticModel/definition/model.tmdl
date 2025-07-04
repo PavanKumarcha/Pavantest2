@@ -10,7 +10,9 @@ annotation PBI_QueryOrder = ["Sheet1"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.145.776.0 (25.07)+a60592270b72f7359f0444fa5397f751b9128bab
+annotation PBIDesktopVersion = 2.144.1378.0 (25.06)+cba1e61f16ea36d44901f06fa446299040122394
+
+annotation PBI_ProTooling = ["DevMode"]
 
 ref table Sheet1
 
