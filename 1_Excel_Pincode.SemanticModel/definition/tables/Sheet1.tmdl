@@ -1,0 +1,43 @@
+table Sheet1
+	lineageTag: e794659c-3d84-4220-aae4-f8ce9c0ee520
+
+	column Pincode
+		dataType: int64
+		formatString: 0
+		lineageTag: a91e78da-7845-4353-a0b2-1eccfd41bb1e
+		summarizeBy: sum
+		sourceColumn: Pincode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: b1eb8cb7-5a1e-48be-ae99-165f79e2a18e
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 5d1f6ef5-4d04-4ca1-a3ed-b8f94bf0f2b4
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sheet1 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\pchamarthi\OneDrive - Microsoft\1.Pavan Kumar Chamarthi\1.Work\Practice\pincode.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Pincode", Int64.Type}, {"Name", type text}, {"Country", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
