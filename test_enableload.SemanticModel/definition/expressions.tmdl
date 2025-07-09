@@ -1,0 +1,14 @@
+expression 'Sheet1 (2)' =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\pchamarthi\OneDrive - Microsoft\1.Pavan Kumar Chamarthi\1.Work\Practice\pincode.xlsx"), null, true),
+		    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Pincode", Int64.Type}, {"Name", type text}, {"Country", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: a75cbeab-7fef-403f-a81b-fefeff38522d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
