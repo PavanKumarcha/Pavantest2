@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Excel_Pincode"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "aa0053ef-045f-4c1d-8096-67e9b2896fb2"
+  }
+}
