@@ -1,0 +1,36 @@
+table ABC
+	lineageTag: 0cb3e4b9-8805-47d7-b388-16da2a2fd552
+
+	column col1
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: 1c2657bb-7d6e-44c9-a287-da1d630503a4
+		summarizeBy: none
+		sourceColumn: col1
+
+		annotation SummarizationSetBy = Automatic
+
+	column col2
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: baebb6c7-2977-48f9-be34-ac576cb06c6c
+		summarizeBy: none
+		sourceColumn: col2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ABC = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Databases("LOCAL-QMD6PLS9E\SQLEXPRESS01"),
+				    AdventureWorksLT2022 = Source{[Name="AdventureWorksLT2022"]}[Data],
+				    dbo_ABC = AdventureWorksLT2022{[Schema="dbo",Item="ABC"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_ABC,{{"col2", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

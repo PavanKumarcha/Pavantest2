@@ -1,0 +1,18 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["ABC"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.145.907.0 (25.07)+08cac3e9c99e1ac1a607ae58202057cfd59f320a
+
+ref table ABC
+
+ref cultureInfo en-IN
+
