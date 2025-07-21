@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Excel_Pincode112"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d25605d0-46a3-a66f-45a5-5172d533f1c0"
+  }
+}
